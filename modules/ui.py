@@ -1560,6 +1560,14 @@ def create_ui():
                 outputs=[component, text_settings],
             )
 
+        button_set_checkpoint = gr.Button('Change checkpoint', elem_id='change_checkpoint', visible=False)
+        button_set_checkpoint.click(
+            fn=lambda value, _: run_settings_single(value, key='sd_model_checkpoint'),
+            _js="function(v){ var res = desiredCheckpointName; desiredCheckpointName = ''; return [res || v, null]; }",
+            inputs=[component_dict['sd_model_checkpoint'], dummy_component],
+            outputs=[component_dict['sd_model_checkpoint'], text_settings],
+        )
+
         component_keys = [k for k in opts.data_labels.keys() if k in component_dict]
 
         def get_settings_values():
@@ -1692,14 +1700,14 @@ def create_ui():
 
 
 def reload_javascript():
-    head = f'<script type="text/javascript" src="file={os.path.abspath("script.js")}"></script>\n'
+    head = f'<script type="text/javascript" src="file={os.path.abspath("script.js")}?{os.path.getmtime("script.js")}"></script>\n'
 
     inline = f"{localization.localization_js(shared.opts.localization)};"
     if cmd_opts.theme is not None:
         inline += f"set_theme('{cmd_opts.theme}');"
 
     for script in modules.scripts.list_scripts("javascript", ".js"):
-        head += f'<script type="text/javascript" src="file={script.path}"></script>\n'
+        head += f'<script type="text/javascript" src="file={script.path}?{os.path.getmtime(script.path)}"></script>\n'
 
     head += f'<script type="text/javascript">{inline}</script>\n'
 
