@@ -200,6 +200,8 @@ class Api:
                 p.script_args = [script_idx + 1] + [None] * (script.args_from - 1) + p.script_args
                 processed = scripts.scripts_txt2img.run(p, *p.script_args)
             else:
+                p.scripts = scripts.scripts_txt2img
+                p.script_args = args['script_args']
                 processed = process_images(p)
             shared.state.end()
 
@@ -243,6 +245,8 @@ class Api:
                 p.script_args = [script_idx + 1] + [None] * (script.args_from - 1) + p.script_args
                 processed = scripts.scripts_img2img.run(p, *p.script_args)
             else:
+                p.scripts = scripts.scripts_img2img
+                p.script_args = args['script_args']
                 processed = process_images(p)
             shared.state.end()
 
