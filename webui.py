@@ -188,7 +188,8 @@ def api_only():
     api = create_api(app)
 
     modules.script_callbacks.app_started_callback(None, app)
-
+    modules.scripts.scripts_txt2img.initialize_scripts(is_img2img=False)  # 初始化脚本插件
+    modules.scripts.scripts_img2img.initialize_scripts(is_img2img=True)
     api.launch(server_name="0.0.0.0" if cmd_opts.listen else "127.0.0.1", port=cmd_opts.port if cmd_opts.port else 7861)
 
 
