@@ -151,7 +151,7 @@ class StableDiffusionProcessing:
 
         self.scripts = None
         self.script_args = script_args
-        self.script_res = None
+        self.nsfw_res = None
         self.all_prompts = None
         self.all_negative_prompts = None
         self.all_seeds = None

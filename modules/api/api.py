@@ -203,13 +203,13 @@ class Api:
                 p.scripts = scripts.scripts_txt2img
                 p.script_args = args['script_args']
                 processed = process_images(p)
-                print(f"script_res {p.script_res}")
             shared.state.end()
 
         b64images = list(map(encode_pil_to_base64, processed.images))
-        txt2imgreq.script_res = p.script_res
-        print(txt2imgreq)
-        return TextToImageResponse(images=b64images, parameters=vars(txt2imgreq), info=processed.js())
+        res = TextToImageResponse(images=b64images, parameters=vars(txt2imgreq), info=processed.js())
+        if p.nsfw_res is not None:
+            res.nsfw_res = p.nsfw_res
+        return res
 
     def img2imgapi(self, img2imgreq: StableDiffusionImg2ImgProcessingAPI):
         init_images = img2imgreq.init_images
@@ -250,7 +250,6 @@ class Api:
                 p.scripts = scripts.scripts_img2img
                 p.script_args = args['script_args']
                 processed = process_images(p)
-                print(f"script_res {p.script_res}")
             shared.state.end()
 
         b64images = list(map(encode_pil_to_base64, processed.images))
@@ -258,8 +257,10 @@ class Api:
         if not img2imgreq.include_init_images:
             img2imgreq.init_images = None
             img2imgreq.mask = None
-        img2imgreq.script_res = p.script_res
-        return ImageToImageResponse(images=b64images, parameters=vars(img2imgreq), info=processed.js())
+        res = ImageToImageResponse(images=b64images, parameters=vars(img2imgreq), info=processed.js())
+        if p.nsfw_res is not None:
+            res.nsfw_res = p.nsfw_res
+        return res
 
     def extras_single_image_api(self, req: ExtrasSingleImageRequest):
         reqDict = setUpscalers(req)
