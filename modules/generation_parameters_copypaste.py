@@ -260,7 +260,7 @@ Steps: 20, Sampler: Euler a, CFG scale: 7, Seed: 965400086, Size: 512x512, Model
     res["Negative prompt"] = negative_prompt
 
     for k, v in re_param.findall(lastline):
-        v = v[1:-1] if v[0] == '"' and v[-1] == '"' else v
+        v = v[1:-1] if v and v[0] == '"' and v[-1] == '"' else v
         m = re_imagesize.match(v)
         if m is not None:
             res[k+"-1"] = m.group(1)
