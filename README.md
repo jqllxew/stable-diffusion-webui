@@ -2,10 +2,10 @@
 #### 原项目地址[在这里](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
 
 ### 2023.2.14
-- 解决以--nowebui参数启动时没有执行nsfw脚本
-- 配合略微[魔改的nsfw扩展](https://github.com/jqllxew/stable-diffusion-webui-nsfw-censor) 
-  实现api调用t2i与i2i时只返回nsfw_res参数用于判断而不会黑图
-- 解决重现历史参数Error
+- 解决以--nowebui参数启动时没有执行nsfw脚本([差分](https://github.com/jqllxew/stable-diffusion-webui/commit/a4c75b143485eba23f46e8ef4f640e974517c301#diff-e093b909cce8fa9f0d7a77571607f8a1f9733c18d6e68ca2d03699c962df6fb5))
+- 配合略微[魔改的nsfw扩展](https://github.com/jqllxew/stable-diffusion-webui-nsfw-censor)
+  实现api调用t2i与i2i时只返回nsfw_res参数用于判断而不会黑图([差分](https://github.com/jqllxew/stable-diffusion-webui/commit/5309641965b7e41dc0dfe57587b265567a649aeb))
+- 解决重现历史参数Error([差分](https://github.com/jqllxew/stable-diffusion-webui/commit/36d34026f47b75d9ad42119da23c326ea2384f29))
 ### 2023.1.30
 - 新增汉化Chinese-English.json
 - 新增requirements_my.txt 方便直接安装
