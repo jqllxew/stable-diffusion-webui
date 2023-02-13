@@ -1,25 +1,33 @@
 # Stable Diffusion web UI
 #### 原项目地址[在这里](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
 
-最后更新时间2023.1.30 这里代码基本没有任何改动，
-我只是新增了汉化Chinese-English.json与requirements_my.txt还有模型与插件，
-之所以创建这个仓库是做一个版本收录以及原项目目前存在的问题，
+### 2023.2.14
+- 解决以--nowebui参数启动时没有执行nsfw脚本
+- 配合略微[魔改的nsfw扩展](https://github.com/jqllxew/stable-diffusion-webui-nsfw-censor) 
+  实现api调用t2i与i2i时只返回nsfw_res参数用于判断而不会黑图
+- 解决重现历史参数Error
+### 2023.1.30
+- 新增汉化Chinese-English.json
+- 新增requirements_my.txt 方便直接安装
+- 修改gradio==3.16.2 为 3.15.0
+
+之所以创建这个仓库是做一个版本收录以及解决原项目目前存在的问题(应该不算魔改吧)，
 如果你对自己安装不感兴趣也可以去下载别人打包好的一键端。
 
-### Python 
+## Python 
 3.10.7 
 
-### CUDA
+## CUDA
 [下载安装](https://developer.nvidia.com/cuda-downloads)
 
-### Pytorch
+## Pytorch
 需要注意的是，安装的CUDA需要对应Pytorch版本，具体请参考 [Pytorch START LOCALLY](https://pytorch.org/get-started/locally/)
 可以看到目前最高支持cuda11.7版本
 ```bash
 pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/cu117 --proxy=xx
 ```
 
-### 其他依赖
+## 其他依赖
 ```bash
 pip install -r requirements_my.txt --proxy=xx
 ```
@@ -61,7 +69,7 @@ path_dirs = [
 
 models 中的 Stable-diffusion目录下的扩散模型可以按需下载
 
-## 关于 xformers
+## xformers
 
 可以让生成图片速度加快一定单位速度(it/s) \
 并且节省内存，意味着可以提高GPU生成图片的分辨率上限
