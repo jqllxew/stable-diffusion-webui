@@ -74,23 +74,21 @@ models 中的 Stable-diffusion目录下的扩散模型可以按需下载
 可以让生成图片速度加快一定单位速度(it/s) \
 并且节省内存，意味着可以提高GPU生成图片的分辨率上限
 
-linux安装可以直接参考 [xformers](https://github.com/facebookresearch/xformers) \
-conda install xformers -c xformers/label/dev
-就完事了
-
-windows需要使用源码安装
+~~windows需要使用源码安装~~
 ```bash
 git clone https://github.com/facebookresearch/xformers.git
 cd xformers
 git submodule update --init --recursive # 更新子模块
 python setup.py build develop # 构建开发包
 ```
-build develop 需要C++环境，安装Visual Studio Installer安装C++桌面开发 \
-之后配置环境变量，例如：
+~~build develop 需要C++环境，安装Visual Studio Installer安装C++桌面开发 \
+之后配置环境变量，例如：~~
 ```
 %xx%VC\Tools\MSVC\xx.xx.xx\bin\Hostx64\x86
 ```
-确保cl.exe命令能正常调用
+~~确保cl.exe命令能正常调用~~
+
+直接pip install xformers==0.0.16
 
 构建完毕之后加入--xformers启动参数启动
 ```bash
