@@ -77,7 +77,7 @@ def setup_model(dirname):
 
             def send_model_to(self, device):
                 self.net.to(device)
-                self.face_helper.face_det.to(device)
+                self.face_helper.face_detector.to(device)
                 self.face_helper.face_parse.to(device)
 
             def restore(self, np_image, w=None):
