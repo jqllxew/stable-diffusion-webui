@@ -142,6 +142,7 @@ class StableDiffusionProcessing:
         self.override_settings_restore_afterwards = override_settings_restore_afterwards
         self.is_using_inpainting_conditioning = False
         self.disable_extra_networks = False
+        self.nsfw_res = None
 
         if not seed_enable_extras:
             self.subseed = -1
