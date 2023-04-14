@@ -6,12 +6,8 @@
 - 配合略微[魔改的nsfw扩展](https://github.com/jqllxew/stable-diffusion-webui-nsfw-censor)
   实现api调用t2i与i2i时只返回nsfw_res参数用于判断而不会黑图([差分](https://github.com/jqllxew/stable-diffusion-webui/commit/5309641965b7e41dc0dfe57587b265567a649aeb))
 - 解决重现历史参数Error([差分](https://github.com/jqllxew/stable-diffusion-webui/commit/36d34026f47b75d9ad42119da23c326ea2384f29))
-### 2023.1.30
-- 新增汉化Chinese-English.json
-- 新增requirements_my.txt 方便直接安装
-- 修改gradio==3.16.2 为 3.15.0
 
-## Python 
+## Python
 3.10.7 
 
 - [stable-diffusion-stability-ai](https://github.com/Stability-AI/stablediffusion)
@@ -19,3 +15,9 @@
 - [CodeFormer](https://github.com/sczhou/CodeFormer)
 - [BLIP](https://github.com/salesforce/BLIP)
 - [k-diffusion](https://github.com/crowsonkb/k-diffusion)
+
+## Install
+```bash
+pip install torch==2.0.0+cu117 torchvision==0.15.1 --index-url https://download.pytorch.org/whl/cu117
+pip install -r requirements_dreambooth.txt
+```
