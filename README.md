@@ -16,8 +16,9 @@
 - [BLIP](https://github.com/salesforce/BLIP)
 - [k-diffusion](https://github.com/crowsonkb/k-diffusion)
 
-## Install
+## install & run
 ```bash
 pip install torch==2.0.0+cu117 torchvision==0.15.1 --index-url https://download.pytorch.org/whl/cu117
 pip install -r requirements_dreambooth.txt
+python webui.py --api --xformers
 ```
