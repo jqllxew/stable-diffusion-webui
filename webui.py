@@ -238,6 +238,7 @@ def webui():
         startup_timer.record("scripts before_ui_callback")
 
         shared.demo = modules.ui.create_ui()
+        shared.demo.queue(concurrency_count=999999, status_update_rate=0.1)
         startup_timer.record("create ui")
 
         if cmd_opts.gradio_queue:
