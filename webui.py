@@ -400,7 +400,7 @@ def webui():
             server_port=cmd_opts.port,
             ssl_keyfile=cmd_opts.tls_keyfile,
             ssl_certfile=cmd_opts.tls_certfile,
-            # ssl_verify=cmd_opts.disable_tls_verify,
+            ssl_verify=cmd_opts.disable_tls_verify,
             debug=cmd_opts.gradio_debug,
             auth=gradio_auth_creds,
             inbrowser=cmd_opts.autolaunch,

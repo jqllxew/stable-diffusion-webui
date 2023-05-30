@@ -45,7 +45,7 @@ basicsr
 fonts
 font-roboto
 gfpgan
-gradio==3.23
+gradio==3.31.0
 numpy
 opencv-contrib-python
 requests
@@ -72,3 +72,4 @@ rich
 google-auth-oauthlib==0.4.6
 xformers==0.0.17
 torchmetrics
+tomesd
